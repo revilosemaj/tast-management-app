@@ -1,28 +1,6 @@
+import { Store, Task, User } from "@/utils/types";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-
-interface Store {
-  numberOfUsers: number;
-  user: User | null;
-  task: Task[];
-  setNumberOfUsers: (numberOfUsers: number) => void;
-  setUser: (user: User) => void;
-  addTask: (task: Task) => void;
-  removeTask: (task: Task) => void;
-  updateTask: (task: Task, newTask: Task) => void;
-}
-
-interface Task {
-  id: number;
-  title: string;
-  description: string;
-  completed: boolean;
-}
-
-interface User {
-  id: string;
-  name: string;
-}
 
 const useStore = create(
   persist<Store>(
@@ -37,15 +15,19 @@ const useStore = create(
           return { user };
         }),
       addTask: (task: Task) =>
-        set((state: { task: Task[] }) => ({ task: [...state.task, task] })),
+        set((state: Store) => ({ task: [...state.task, task] })),
       removeTask: (task: Task) =>
-        set((state: { task: Task[] }) => ({
+        set((state: Store) => ({
           task: state.task.filter((t) => t !== task),
         })),
       updateTask: (task: Task, newTask: Task) =>
-        set((state: { task: Task[] }) => ({
+        set((state: Store) => ({
           task: state.task.map((t) => (t === task ? newTask : t)),
         })),
+      logout: () => {
+        localStorage.removeItem("token");
+        set({ user: null });
+      },
     }),
     {
       name: "user-task-storage",

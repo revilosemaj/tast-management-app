@@ -15,7 +15,7 @@ export default function Login({ handleUser }: { handleUser: () => void }) {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const transformedInput = inputValue.trim();
+    const transformedInput = inputValue.replaceAll(" ", "");
     const token = `${transformedInput}-${numberOfUsers + 1}`;
 
     if (transformedInput) {
@@ -33,7 +33,7 @@ export default function Login({ handleUser }: { handleUser: () => void }) {
 
   const handleAnonymous = () => {
     setUser({
-      id: "anonymous-${numberOfUsers + 1}",
+      id: `anonymous-${numberOfUsers + 1}`,
       name: "anonymous",
     });
     setNumberOfUsers(numberOfUsers + 1);
@@ -64,7 +64,7 @@ export default function Login({ handleUser }: { handleUser: () => void }) {
           type="submit"
           className="w-full p-2 rounded-md bg-emerald-900 text-white"
         >
-          Login
+          Enter
         </button>
         <button
           type="button"

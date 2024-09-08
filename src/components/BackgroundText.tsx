@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import { BACKGROUND_TEXT } from "@/utils/constant";
+import { HEADER_TEXT } from "@/utils/constant";
 
 const BackgroundText: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -20,7 +20,7 @@ const BackgroundText: React.FC = () => {
     // Scale the context to ensure correct resolution
     ctx.scale(dpr, dpr);
 
-    const text = BACKGROUND_TEXT;
+    const text = HEADER_TEXT;
     const fontSize = 100; // Increased font size
     const fontFamily = "Roboto Mono, monospace"; // Updated font family
     const color = "rgba(0, 0, 0, 0.5)";
