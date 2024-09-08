@@ -1,6 +1,6 @@
-'use client';
-import React, { useEffect, useRef } from 'react';
-import { BACKGROUND_TEXT } from '@/utils/constant';
+"use client";
+import React, { useEffect, useRef } from "react";
+import { BACKGROUND_TEXT } from "@/utils/constant";
 
 const BackgroundText: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -9,7 +9,7 @@ const BackgroundText: React.FC = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     // Set canvas size to match device pixel ratio
@@ -22,8 +22,8 @@ const BackgroundText: React.FC = () => {
 
     const text = BACKGROUND_TEXT;
     const fontSize = 100; // Increased font size
-    const fontFamily = 'Roboto Mono, monospace'; // Updated font family
-    const color = 'rgba(255, 255, 255, 0.5)';
+    const fontFamily = "Roboto Mono, monospace"; // Updated font family
+    const color = "rgba(0, 0, 0, 0.5)";
     const yPosition = canvas.height / (10 * dpr); // Position text at the top
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -31,8 +31,8 @@ const BackgroundText: React.FC = () => {
     ctx.fillStyle = color;
 
     // Use textBaseline and textAlign for precise positioning
-    ctx.textBaseline = 'middle';
-    ctx.textAlign = 'center';
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "center";
 
     // Draw text at the center of the canvas
     ctx.fillText(text, canvas.width / (2 * dpr), yPosition);
@@ -41,7 +41,7 @@ const BackgroundText: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 bg-black z-[-1] w-full h-full"
+      className="absolute inset-0 bg-emerald-200 z-[-1] w-full h-full"
     />
   );
 };

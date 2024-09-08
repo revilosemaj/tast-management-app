@@ -1,1 +1,1 @@
-export const BACKGROUND_TEXT = 'Task Management';
+export const BACKGROUND_TEXT = "Task Management";

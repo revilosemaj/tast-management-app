@@ -14,7 +14,6 @@ const robotoBold = localFont({
   weight: "100 900",
 });
 
-
 export const metadata: Metadata = {
   title: "Task Management App",
   description: "This is a task management app",
