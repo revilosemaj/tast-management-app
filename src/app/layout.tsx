@@ -2,16 +2,18 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
+const robotoMono = localFont({
+  src: "./fonts/RobotoMono-Regular.ttf",
+  variable: "--font-roboto-mono",
   weight: "100 900",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
+
+const robotoBold = localFont({
+  src: "./fonts/Roboto-Bold.ttf",
+  variable: "--font-roboto-bold",
   weight: "100 900",
 });
+
 
 export const metadata: Metadata = {
   title: "Task Management App",
@@ -26,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${robotoMono.variable} ${robotoBold.variable} antialiased`}
       >
         {children}
       </body>
