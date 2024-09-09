@@ -16,9 +16,9 @@ const useStore = create(
         }),
       addTask: (task: Task) =>
         set((state: Store) => ({ task: [...state.task, task] })),
-      removeTask: (task: Task) =>
+      removeTask: (id: number) =>
         set((state: Store) => ({
-          task: state.task.filter((t) => t !== task),
+          task: state.task.filter((t) => t.id !== id),
         })),
       updateTask: (task: Task, newTask: Task) =>
         set((state: Store) => ({

@@ -5,7 +5,7 @@ export interface Store {
   setNumberOfUsers: (numberOfUsers: number) => void;
   setUser: (user: User) => void;
   addTask: (task: Task) => void;
-  removeTask: (task: Task) => void;
+  removeTask: (id: number) => void;
   updateTask: (task: Task, newTask: Task) => void;
   logout: () => void;
 }
